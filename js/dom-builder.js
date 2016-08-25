@@ -3,7 +3,8 @@
 //Grab templates
 var loginTemplate = require('../lib/templates/login.hbs'),
     loginData = require('../lib/templates/login-data.js'),
-    zipTemplate = require('../lib/templates/zip.hbs');
+    zipTemplate = require('../lib/templates/zip.hbs'),
+    weatherTemplate = require('../lib/templates/weather.hbs');
 
 console.log("login info", loginData);
 
@@ -19,7 +20,7 @@ function enterZip (){
 }
 
 function showCurrentWeather(){
-
+  $(".content").html(weatherTemplate());
 }
 
 module.exports = {enterZip, showCurrentWeather};

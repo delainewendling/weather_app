@@ -10,15 +10,19 @@ var loginMethods = require('./login_methods.js'),
 
 $(document).on('click', '#submitZip', validateZip);
 
-function validateZip (){
-  let zipcode = $('input#enterZip').val();
-  if (zipcode.length > 5 || zipcode.search(/\D/)){
-    alert("Please enter a valid zip code");
+function validateZip (e){
+  e.preventDefault();
+  var zipcode = $('#zip_code').val();
+  console.log("zipcode", zipcode);
+  if (zipcode.length !== 5 || zipcode.search(/[^0-9]/) !== -1){
+    console.log("inside if", zipcode);
+    window.alert("Please enter a valid zip code");
   } else {
+    console.log("inside else", zipcode);
     getWeather(zipcode)
     .then((weatherData)=>{
-      
-    })
+      dbuilder.showCurrentWeather(weatherData);
+    });
   }
 }
 
@@ -27,7 +31,7 @@ function getWeather(zipcode){
     $.ajax({
       url: `http://api.openweathermap.org/data/2.5/forecast/daily?zip=${zipcode},us&cnt=3&appid=${weatherKey}`,
     }).done(function(weatherData){
-      console.log("weather data?", weatherData)
+      console.log("weather data?", weatherData);
       resolve(weatherData);
     });
   });
