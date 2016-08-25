@@ -19,8 +19,8 @@ function enterZip (){
   $(".content").html(zipTemplate());
 }
 
-function showCurrentWeather(){
-  $(".content").html(weatherTemplate());
+function showCurrentWeather(weatherData){
+  $(".content").html(weatherTemplate(weatherData));
 }
 
 module.exports = {enterZip, showCurrentWeather};

@@ -9,6 +9,17 @@
       </ul>
     </div>
   </nav>
-  <div class="weatherInfo">
+  <div class="currentWeather">
+    <div class="offset-s3 col s6 center-align">
+      <h3> Today's Weather in {{city.name}} </h3>
+      {{#each list}}
+        <h4 class="center-align"> <strong> {{temp.day}} &deg; </strong> </h4>
+        {{#each weather}}
+          <p> {{description}} </p>
+        {{/each}}
+        <p> Wind Speed {{speed}} mph </p>
+        <p> Air pressure {{pressure}}</p>
+      {{/each}}
+    </div>
   </div>
 </div>
