@@ -1,25 +1,28 @@
 'use strict';
 
-var loginMethods = require('./login_methods.js');
+var loginMethods = require('./login_methods.js'),
+    nextScreen = require('./dom-builder.js');
 var displayName,
     profileImg,
     userId;
 
-$("#google-auth").click(googleLogin);
+$(document).on('click', '#google', googleLogin);
+// $(document).on('click', '#facebook', facebookLogin);
+// $(document).on('click', '#twitter', twitterLogin);
+// $(document).on('click', '#github', githubLogin);
 
   function googleLogin() {
-    console.log("clicked auth");
     loginMethods.logInGoogle()
     .then((result)=>{
-      console.log("result from login", result);
       displayName = result.user.displayName;
       profileImg = result.user.photoURL;
       let user = result.user;
       userId = user.uid;
-      loadLoginInfo();
+      // loadLoginInfo();
+      nextScreen.enterZip();
     });
   }
 
-  function loadLoginInfo() {
-    $(".userInfo").html(`<img src="${profileImg}" class="profilePic"> <span class="userName"> ${displayName} </span>`);
-  }
+  // function loadLoginInfo() {
+  //   $(".userInfo").html(`<img src="${profileImg}" class="profilePic"> <span class="userName"> ${displayName} </span>`);
+  // }

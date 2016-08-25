@@ -1,8 +1,10 @@
-<div class="row">
+{{#each authOptions}}
+<div class="row loginScreen">
   <div class="col s3 offset-s3">
-    <button class="login-auth"></button>
+    <button class="login-auth" id="{{name1}}"> <span class="loginText"> Login in with </span> <img src="{{icon1}}" alt="Login with {{name1}}" class="auth-icon"></button>
   </div>
   <div class="col s3">
-    <button class="login-auth"></button>
+    <button class="login-auth" id="{{name2}}"> <span class="loginText"> Login in with </span><img src="{{icon2}}" alt="Login with {{name2}}" class="auth-icon"></button>
   </div>
 </div>
+{{/each}}
