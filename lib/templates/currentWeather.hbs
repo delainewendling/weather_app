@@ -9,8 +9,9 @@
       </ul>
     </div>
   </nav>
-  <div class="currentWeather">
+  <div class="row currentWeather">
     <div class="offset-s3 col s6 center-align">
+      <i class="small material-icons right-align star">star</i>
       <h3> Today's Weather in {{city.name}} </h3>
       {{#each list}}
         <h4 class="center-align"> <strong> {{temp.day}} &deg; </strong> </h4>
@@ -23,3 +24,10 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="offset-s3 col s6 center-align">
+    <button class="3-day-weather-btn"> Show 3-day Forecast </button>
+    <button class="7-day-weather-btn"> Show 7-day Forecast </button>
+  </div>
+</div>
+

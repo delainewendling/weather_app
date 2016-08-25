@@ -4,7 +4,9 @@
 var loginTemplate = require('../lib/templates/login.hbs'),
     loginData = require('../lib/templates/login-data.js'),
     zipTemplate = require('../lib/templates/zip.hbs'),
-    weatherTemplate = require('../lib/templates/weather.hbs');
+    currentWeatherTemplate = require('../lib/templates/currentWeather.hbs'),
+    threeDayWeather = require('../lib/templates/3-day-weather.hbs'),
+    sevenDayWeather = require('../lib/templates/7-day-weather.hbs');
 
 console.log("login info", loginData);
 
@@ -20,7 +22,15 @@ function enterZip (){
 }
 
 function showCurrentWeather(weatherData){
-  $(".content").html(weatherTemplate(weatherData));
+  $(".content").html(currentWeatherTemplate(weatherData));
 }
 
-module.exports = {enterZip, showCurrentWeather};
+function show3dayWeather(weatherData){
+  $(".content").html(threeDayWeather(weatherData));
+}
+
+function show7dayWeather(weatherData){
+  $(".content").html(sevenDayWeather(weatherData));
+}
+
+module.exports = {enterZip, showCurrentWeather, show3dayWeather, show7dayWeather};
