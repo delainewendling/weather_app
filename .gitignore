@@ -39,4 +39,5 @@ jspm_packages
 lib/bower_components
 lib/node_modules
 js/fb-getter
+dist/
 
