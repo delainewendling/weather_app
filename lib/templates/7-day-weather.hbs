@@ -1,27 +1,30 @@
 <div class="container">
   <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">YOUR Weather</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">Example</a></li>
-        <li><a href="#">Example</a></li>
-        <li><a href="#">Example</a></li>
+      <nav>
+    <div class="nav-wrapper z-depth-1">
+      <ul id="nav-mobile" class="left nav__links">
+        <li><a href="#" class="selected weather">Weather</a></li>
+        <li><a href="#" class="profile">Profile</a></li>
       </ul>
     </div>
   </nav>
+  </nav>
   <div class="row">
-      <i class="small material-icons right-align star">star</i>
-      <h3> Today's Weather in {{city.name}} </h3>
+      <span> Save Forecast </span><i class="small material-icons star save7dayWeather">star</i>
+      <h3> 7-day Forecast for <i class="cityName">{{city.name}}</i> </h3>
   </div>
   <div class="row sevenDayWeather">
     {{#each list}}
-    <div class="col s3 center-align">
-        <h4 class="center-align"> <strong> {{temp.day}} &deg; </strong> </h4>
+    <div class="col s3 center-align z-depth-2 weatherBox">
         {{#each weather}}
-          <p> {{description}} </p>
+        <img src="http://openweathermap.org/img/w/{{icon}}.png">
         {{/each}}
-        <p> Wind Speed {{speed}} mph </p>
-        <p> Air pressure {{pressure}}</p>
+        <h4 class="center-align temp"> <strong> {{temp.day}} &deg; </strong> </h4>
+        {{#each weather}}
+          <p class="weatherDescription"> {{description}} </p>
+        {{/each}}
+        <p class="windSpeed"> Wind Speed {{speed}} mph </p>
+        <p class="airPressure"> Air pressure {{pressure}}</p>
     </div>
     {{/each}}
   </div>

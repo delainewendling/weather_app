@@ -1,0 +1,31 @@
+<div class="container">
+  <nav>
+    <div class="nav-wrapper z-depth-1">
+      <ul id="nav-mobile" class="left nav__links">
+        <li><a href="#" class="weather">Weather</a></li>
+        <li><a href="#"class="selected profile">Profile</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row">
+    <h1 class="center-align"> Saved Forecasts </h1>
+  </div>
+  {{#each this}}
+    <div class="row z-depth-2 weatherBox">
+      <h3> Weather in <i class="cityName">{{city.name}}</i> </h3>
+    {{#each list}}
+      <div class="col s4 center-align day">
+        {{#each weather}}
+        <img src="http://openweathermap.org/img/w/{{icon}}.png">
+        {{/each}}
+          <h4 class="center-align temp"> <strong> {{temp.day}} &deg; </strong> </h4>
+          {{#each weather}}
+            <p class="weatherDescription"> {{description}} </p>
+          {{/each}}
+          <p class="windSpeed"> Wind Speed {{speed}} mph </p>
+          <p class="airPressure"> Air pressure {{pressure}}</p>
+      </div>
+    {{/each}}
+    </div>
+  {{/each}}
+</div>
