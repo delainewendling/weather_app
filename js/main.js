@@ -1,6 +1,7 @@
 "use strict";
 
 let loginMethods = require('./login_methods.js'),
+    firebase = require("../lib/node_modules/firebase/app"),
     user = require('./user.js'),
     fbConfig = require('./firebaseConfig.js'),
     db = require('./db-interaction.js'),
@@ -38,6 +39,7 @@ function validateZip (e){
   if (zipcode.length !== 5 || zipcode.search(/[^0-9]/) !== -1){
     window.alert("Please enter a valid zip code");
   } else {
+    userId = firebase.auth().currentUser.uid;
     getCurrentWeather();
   }
 }
@@ -95,6 +97,7 @@ function save7dayWeather (){
 }
 
 function buildCurrentWeatherObj(){
+  userId = firebase.auth().currentUser.uid;
   let weatherObj = {
     "city": {
         "name": weather.city.name
@@ -120,6 +123,7 @@ function buildCurrentWeatherObj(){
 }
 
 function build3DayWeatherObj(){
+  userId = firebase.auth().currentUser.uid;
   let weatherObj = {
     "city": {
         "name": weather.city.name
@@ -171,6 +175,7 @@ function build3DayWeatherObj(){
 }
 
 function build7DayWeatherObj(){
+  userId = firebase.auth().currentUser.uid;
   let weatherObj = {
     "city": {
         "name": weather.city.name

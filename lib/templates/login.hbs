@@ -1,5 +1,7 @@
+<div class="container loginScreen">
+<h1 class="center-align"> YOUR Weather </h1>
 {{#each authOptions}}
-<div class="row loginScreen">
+<div class="row">
   <div class="col s3 offset-s3">
     <button class="login-auth" id="{{name1}}"> <span class="loginText"> Login in with </span> <img src="{{icon1}}" alt="Login with {{name1}}" class="auth-icon"></button>
   </div>
@@ -8,3 +10,7 @@
   </div>
 </div>
 {{/each}}
+<div class="loginWithEmail offset-s4 col s4 center-align">
+  <button class="login-auth" id="emailPassword"> <span class="loginText"> Login in with Email</span></button>
+</div>
+</div>
